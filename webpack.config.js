@@ -7,16 +7,19 @@ var autoprefixer = require('autoprefixer');
 var precss       = require('precss');
 
 module.exports = {
-  context: path.join(__dirname, ''),
-  entry : [ './dev/index.css', './dev/index.js'],
+  context: path.resolve('dev'),
+  entry : [ 'index.css', 'index.js'],
   output: {
       path: __dirname + "/public",
       filename: "bundle.js",
-      publicPath: '/'
+      publicPath: '/public/'
   },
   resolve: {
     modulesDirectories: ['node_modules', 'dev'],
     extensions: ['', '.js', '.css']
+  },
+  devServer: {
+    contentBase: 'public'
   },
   module: {
     loaders: [
