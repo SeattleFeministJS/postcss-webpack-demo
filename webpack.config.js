@@ -8,8 +8,7 @@ var precss       = require('precss');
 
 module.exports = {
   entry : [
-    './dev/',
-    'file?name=index.html!./public/index.html'
+    './dev/index.js'
   ],
   output: {
       path: __dirname + "/public",
@@ -36,8 +35,8 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]!postcss'
-      }
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader')
+      },
     ]
   },
   postcss: function(webpack){

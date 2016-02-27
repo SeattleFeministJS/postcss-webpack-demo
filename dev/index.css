@@ -13,7 +13,6 @@
 /*==========  Native Variables  ==========*/
 :root {
   --linkColour: purple;
-  --borderColor: pink;
 }
 
 a {
@@ -118,9 +117,13 @@ section {
 /*=====================================
 =            Demo Exercise          =
 =====================================*/
+:global {
+  #app {
+    text-align: center;
+  }
+}
 .header {
   padding: 25px 0;
-  text-align: center;
   width: 100%;
 }
 
@@ -136,7 +139,8 @@ section {
 }
 
 .picture {
-  border: solid 3px var(--borderColor);
+  border: solid 3px rebeccapurple;
+  width:1024px;
   margin: 0 auto;
 }
 
