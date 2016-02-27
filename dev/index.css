@@ -1,3 +1,145 @@
-.test {
-  display: flex
+/*====================================
+=            AutoPrefixer            =
+====================================*/
+.item {
+  display: flex;
+  flex-flow: row wrap;
 }
+
+/*===============================
+=            CSSNext            =
+===============================*/
+
+/*==========  Native Variables  ==========*/
+:root {
+  --linkColour: purple;
+  --borderColor: pink;
+}
+
+a {
+  color: var(--linkColour);
+}
+
+/*==========  Custom Media Queries with Ranges  ==========*/
+
+@custom-media --only-medium-screen (width >= 500px) and (width <= 1200px);
+
+@media (--only-medium-screen) {
+  body {
+    background: rebeccapurple;
+  }
+}
+
+/*==========  Custom Selectors  ==========*/
+@custom-selector :--enter :hover, :focus;
+@custom-selector :--input input, .input, .inputField;
+
+a:--enter {
+  text-decoration: none;
+}
+
+:--input {
+  border: 0;
+}
+
+/*==============================
+=            PreCSS            =
+==============================*/
+
+/*==========  Variables  ==========*/
+$blue: #0000ff;
+$green: #00ff00;
+$radius: 10px;
+
+.square {
+  background: $blue;
+  border-radius: $radius;
+}
+
+/*==========  Creating a mixin  ==========*/
+@define-mixin square $dimension {
+    width: $dimension;
+    height: $dimension;
+}
+
+/*==========  Nesting, Variables and Mixins  ==========*/
+.button {
+  @mixin square 200px;
+  background: $green;
+  &:hover {
+    background: $blue;
+  }
+}
+
+
+/*========================================
+=            Quantity Queries            =
+========================================*/
+
+.container > .item:at-least(5) {
+  background: blue;
+}
+
+.item > a:at-most(10) {
+  color: green;
+}
+
+.gallery > img:between(4, 7) {
+  width: 25%;
+}
+
+.profiles:exactly(4) {
+  flex: 1 0 50%;
+}
+
+/*=====================================
+=            PostCSS-Short            =
+=====================================*/
+
+/*==========  Text  ==========*/
+p {
+  text: 300 uppercase dimgrey center 16px 1.7 .05em;
+}
+
+/*==========  Position  ==========*/
+section {
+  position: absolute 10px * *;
+}
+
+.topNav {
+  position: fixed 0 * * 0;
+}
+
+.modal {
+  position: fixed 40% 25%;
+}
+
+
+/*=====================================
+=            Demo Exercise          =
+=====================================*/
+.header {
+  padding: 25px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.title {
+  color: #ff0000;
+  font-size: 36px;
+}
+
+.description {
+  font-family: Verdana, sans-serif;
+  line-height: 2em;
+  margin: 0 2em;
+}
+
+.picture {
+  border: solid 3px var(--borderColor);
+  margin: 0 auto;
+}
+
+
+
+

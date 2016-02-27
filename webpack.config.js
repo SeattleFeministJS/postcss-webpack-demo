@@ -7,8 +7,10 @@ var autoprefixer = require('autoprefixer');
 var precss       = require('precss');
 
 module.exports = {
-  context: path.resolve('dev'),
-  entry : [ 'index.css', 'index.js'],
+  entry : [
+    './dev/',
+    'file?name=index.html!./public/index.html'
+  ],
   output: {
       path: __dirname + "/public",
       filename: "bundle.js",
@@ -34,7 +36,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
+        loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]!postcss'
       }
     ]
   },
@@ -44,6 +46,7 @@ module.exports = {
         addDependencyTo: webpack
       }),
       require('precss')(),
+      require('postcss-url'),
       require('postcss-cssnext')(),
       require('postcss-custom-properties')(),
       require('postcss-browser-reporter')(),

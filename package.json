@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "webpack-dev-server --inline",
-    "dev": "NODE_ENV=development webpack-dev-server --inline",
+    "dev": "NODE_ENV=development webpack-dev-server",
     "build": "NODE_ENV=production webpack -p"
   },
   "repository": {
@@ -45,6 +45,7 @@
     "postcss-import": "^7.1.3",
     "postcss-loader": "^0.7.0",
     "postcss-reporter": "^1.3.3",
+    "postcss-url": "^5.1.1",
     "postcss-use": "^2.0.1",
     "precss": "^1.4.0",
     "style-loader": "^0.13.0",
